@@ -49,9 +49,17 @@ public class Counter {
 
     public void increment(){
         if ((getValue() + getStep()) > MAX_COUNTER){
-            logger.info("You have limit counter");
+            logger.info("You have Max limit counter");
         } else {
             this.value = getValue() + getStep();
+        }
+    }
+
+    public void decrement(){
+        if ((getValue() - getStep()) < MIN_COUNTER){
+            logger.info("You have min limit counter");
+        } else {
+            this.value = getValue() - getStep();
         }
     }
 }
