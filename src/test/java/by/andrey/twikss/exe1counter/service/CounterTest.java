@@ -95,4 +95,28 @@ public class CounterTest {
 
         assertEquals(expected,actual);
     }
+
+    @Test
+    public void incrementReturnTrue() {
+        counter.setValue(90);
+        counter.setStep(10);
+        counter.increment();
+
+        int expected = 100;
+        int actual = counter.getValue();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void increment() {
+        counter.setValue(95);
+        counter.setStep(4);
+        counter.increment();
+
+        int expected = 99;
+        int actual = counter.getValue();
+
+        assertEquals(expected, actual);
+    }
 }
