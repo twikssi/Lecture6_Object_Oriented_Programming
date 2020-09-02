@@ -49,4 +49,37 @@ public class BookTest {
 
         assertEquals(expected,actual);
     }
+
+    @Test
+    public void getAuthorReturnString() {
+            Book book = new Book("Remark", "Live", 400);
+            book.setAuthor("Bamby");
+
+            String expected = "Bamby";
+            String actual = book.getAuthor();
+
+            assertEquals(expected,actual);
+    }
+
+    @Test
+    public void getNameBookReturnInputName() {
+        Book book = new Book("Remark", "Live", 400);
+        book.setNameBook("The West Front No Changes");
+
+        String expected = "The West Front No Changes";
+        String actual = book.getNameBook();
+
+        assertEquals(expected,actual);
+    }
+
+    @Test
+    public void getCountOfPage() {
+        Book book = new Book("Remark", "Live", 400);
+        book.setCountOfPage(465);
+
+        int expected = 465;
+        int actual = book.getCountOfPage();
+
+        assertEquals(expected,actual);
+    }
 }
