@@ -40,7 +40,10 @@ public class Counter {
         } else {
             logger.info("Value Counter can be between (0 - 100)");
         }
+    }
 
-
+    public void reset(){
+        this.value = 0;
+        this.step = 1;
     }
 }
