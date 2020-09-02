@@ -97,24 +97,65 @@ public class CounterTest {
     }
 
     @Test
-    public void incrementReturnTrue() {
-        counter.setValue(90);
+    public void incrementHasLimit() {
+        counter.setValue(95);
         counter.setStep(10);
         counter.increment();
 
-        int expected = 100;
+        int expected = 95;
         int actual = counter.getValue();
 
         assertEquals(expected, actual);
     }
 
     @Test
-    public void increment() {
+    public void incrementReturnTrue() {
         counter.setValue(95);
         counter.setStep(4);
         counter.increment();
 
         int expected = 99;
+        int actual = counter.getValue();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void decrementHasLimit(){
+        counter.setValue(2);
+        counter.setStep(4);
+        counter.decrement();
+
+        int expected = 2;
+        int actual = counter.getValue();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void decrementReturnTrue(){
+        counter.setValue(42);
+        counter.setStep(4);
+        counter.decrement();
+        counter.decrement();
+        counter.decrement();
+        counter.decrement();
+        counter.decrement();
+
+
+        int expected = 22;
+        int actual = counter.getValue();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void decrementReturnZero(){
+        counter.setValue(2);
+        counter.setStep(2);
+        counter.decrement();
+
+        int expected = 0;
         int actual = counter.getValue();
 
         assertEquals(expected, actual);
