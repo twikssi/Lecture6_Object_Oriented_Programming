@@ -83,4 +83,16 @@ public class CounterTest {
 
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void resetStepAndValueToBeginValue() {
+        counter.setStep(6);
+        counter.setValue(78);
+        counter.reset();
+
+        boolean expected = true;
+        boolean actual = (counter.getStep() == 1 && counter.getValue() == 0);
+
+        assertEquals(expected,actual);
+    }
 }
