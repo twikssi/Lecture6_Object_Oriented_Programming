@@ -46,4 +46,12 @@ public class Counter {
         this.value = 0;
         this.step = 1;
     }
+
+    public void incremment(){
+        if ((getValue() + getStep()) > MAX_COUNTER){
+            logger.info("You have limit counter");
+        } else {
+            this.value = getValue() + getStep();
+        }
+    }
 }
