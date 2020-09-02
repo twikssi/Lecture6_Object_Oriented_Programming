@@ -20,7 +20,7 @@ public class Counter {
     }
 
     public void setValue(int value) {
-        if (getValue() >= MIN_COUNTER && getValue() <= MAX_COUNTER){
+        if (value >= MIN_COUNTER && value <= MAX_COUNTER){
             this.value = value;
         } else {
             logger.info("Value Counter can be between (0 - 100)");
