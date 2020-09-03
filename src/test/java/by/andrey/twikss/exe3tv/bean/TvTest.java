@@ -96,4 +96,60 @@ public class TvTest {
 
         assertEquals(expected,actual);
     }
+
+    @Test
+    public void turnUpVolumeReturnNumber() {
+        tv.setSwitchTV(true);
+        tv.turnUpVolume();
+        tv.turnUpVolume();
+        tv.turnUpVolume();
+        tv.turnUpVolume();
+
+        int expected = 54;
+        int actual = tv.getCurrentVolume();
+
+        assertEquals(expected,actual);
+    }
+
+    @Test
+    public void turnUpVolumeReturnLog() {
+        tv.setSwitchTV(false);
+        tv.turnUpVolume();
+        tv.turnUpVolume();
+        tv.turnUpVolume();
+        tv.turnUpVolume();
+
+        int expected = 50;
+        int actual = tv.getCurrentVolume();
+
+        assertEquals(expected,actual);
+    }
+
+    @Test
+    public void turnDownVolumeReturnNumber() {
+        tv.setSwitchTV(true);
+        tv.turnDownVolume();
+        tv.turnDownVolume();
+        tv.turnDownVolume();
+        tv.turnDownVolume();
+
+        int expected = 46;
+        int actual = tv.getCurrentVolume();
+
+        assertEquals(expected,actual);
+    }
+
+    @Test
+    public void turnDownVolumeReturnLog() {
+        tv.setSwitchTV(false);
+        tv.turnDownVolume();
+        tv.turnDownVolume();
+        tv.turnDownVolume();
+        tv.turnDownVolume();
+
+        int expected = 50;
+        int actual = tv.getCurrentVolume();
+
+        assertEquals(expected,actual);
+    }
 }
