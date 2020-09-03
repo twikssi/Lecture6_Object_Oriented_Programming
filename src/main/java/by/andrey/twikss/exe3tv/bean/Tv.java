@@ -14,6 +14,22 @@ public class Tv {
         this.company = company;
     }
 
+    public void setCurrentChanal(int currentChanal) {
+        this.currentChanal = currentChanal;
+    }
+
+    public void setCurrentVolume(int currentVolume) {
+        this.currentVolume = currentVolume;
+    }
+
+    public void setCompany(String company) {
+        this.company = company;
+    }
+
+    public void setSwitchTV(boolean switchTV) {
+        this.switchTV = switchTV;
+    }
+
     public int getCurrentChanal() {
         return currentChanal;
     }
