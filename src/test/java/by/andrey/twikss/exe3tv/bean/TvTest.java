@@ -70,4 +70,30 @@ public class TvTest {
 
         assertEquals(expected,actual);
     }
+
+    @Test
+    public void switchChannelDecreaseReturnNumberChannel() {
+        tv.setSwitchTV(true);
+        tv.setCurrentChannel(54);
+        tv.switchChannelDecrease();
+        tv.switchChannelDecrease();
+
+        int expected = 52;
+        int actual = tv.getCurrentChannel();
+
+        assertEquals(expected,actual);
+    }
+
+    @Test
+    public void switchChannelDecreaseReturnLog() {
+        tv.setSwitchTV(false);
+        tv.setCurrentChannel(54);
+        tv.switchChannelDecrease();
+        tv.switchChannelDecrease();
+
+        int expected = 54;
+        int actual = tv.getCurrentChannel();
+
+        assertEquals(expected,actual);
+    }
 }

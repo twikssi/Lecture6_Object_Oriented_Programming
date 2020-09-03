@@ -26,6 +26,14 @@ public class Tv {
         }
     }
 
+    public void switchChannelDecrease (){
+        if (isSwitchTV() == true){
+            this.currentChannel -= 1;
+        } else {
+            logger.info("Tv has turned off");
+        }
+    }
+
     public void setCurrentChannel(int currentChannel) {
         this.currentChannel = currentChannel;
     }
