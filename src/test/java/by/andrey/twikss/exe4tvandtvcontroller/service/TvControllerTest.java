@@ -37,4 +37,26 @@ public class TvControllerTest {
     }
 
 
+    @Test
+    public void turnOnTv() {
+        tvController.setTv(tv);
+        tvController.turnOnTv();
+
+        boolean expected = true;
+        boolean actual = tv.isSwitchTV();
+
+        assertEquals(expected,actual);
+    }
+
+    @Test
+    public void turnOffTv() {
+        tvController.setTv(tv);
+        tvController.turnOnTv();
+        tvController.turnOffTv();
+
+        boolean expected = false;
+        boolean actual = tv.isSwitchTV();
+
+        assertEquals(expected,actual);
+    }
 }

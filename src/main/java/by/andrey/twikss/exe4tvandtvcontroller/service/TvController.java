@@ -13,5 +13,11 @@ public class TvController {
         this.tv = tv;
     }
 
+    public void turnOnTv(){
+        tv.setSwitchTV(true);
+    }
 
+    public void turnOffTv(){
+        tv.setSwitchTV(false);
+    }
 }
