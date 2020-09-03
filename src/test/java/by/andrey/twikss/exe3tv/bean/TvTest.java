@@ -128,12 +128,13 @@ public class TvTest {
     @Test
     public void turnDownVolumeReturnNumber() {
         tv.setSwitchTV(true);
+        tv.setCurrentVolume(68);
         tv.turnDownVolume();
         tv.turnDownVolume();
         tv.turnDownVolume();
         tv.turnDownVolume();
 
-        int expected = 46;
+        int expected = 64;
         int actual = tv.getCurrentVolume();
 
         assertEquals(expected,actual);
@@ -149,6 +150,16 @@ public class TvTest {
 
         int expected = 50;
         int actual = tv.getCurrentVolume();
+
+        assertEquals(expected,actual);
+    }
+
+    @Test
+    public void setCompanyReturnTrue() {
+        tv.setCompany("RussianBox");
+
+        String expected = "RussianBox";
+        String actual = tv.getCompany();
 
         assertEquals(expected,actual);
     }
