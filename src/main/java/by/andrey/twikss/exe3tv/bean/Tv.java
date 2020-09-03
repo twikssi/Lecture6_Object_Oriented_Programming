@@ -11,6 +11,7 @@ public class Tv {
     private int currentVolume;
     private String company;
     private boolean switchTV = false;
+    private static final String INFO_LOG_TV_TURNED_OFF = "Tv has been turned off";
 
     public Tv(int currentChannel, int currentVolume, String company) {
         this.currentChannel = currentChannel;
@@ -22,7 +23,7 @@ public class Tv {
         if (isSwitchTV()){
             this.currentChannel += 1;
         } else {
-            logger.info("Tv has turned off");
+            logger.info(INFO_LOG_TV_TURNED_OFF);
         }
     }
 
@@ -30,7 +31,7 @@ public class Tv {
         if (isSwitchTV()){
             this.currentChannel -= 1;
         } else {
-            logger.info("Tv has turned off");
+            logger.info(INFO_LOG_TV_TURNED_OFF);
         }
     }
 
@@ -38,7 +39,7 @@ public class Tv {
         if (isSwitchTV()){
             this.currentVolume += 1;
         } else {
-            logger.info("Tv has turned off");
+            logger.info(INFO_LOG_TV_TURNED_OFF);
         }
     }
 
@@ -46,7 +47,7 @@ public class Tv {
         if (isSwitchTV()){
             this.currentVolume -= 1;
         } else {
-            logger.info("Tv has turned off");
+            logger.info(INFO_LOG_TV_TURNED_OFF);
         }
     }
 
