@@ -27,4 +27,10 @@ public class TvController {
     public void turnDownVolume(){
         tv.turnDownVolume();
     }
+    public void switchChannelIncrease(){
+        tv.switchChannelIncrease();
+    }
+    public void switchChannelDecrease(){
+        tv.switchChannelDecrease();
+    }
 }

@@ -92,4 +92,42 @@ public class TvControllerTest {
 
         assertEquals(expected,actual);
     }
+
+    @Test
+    public void switchChannelIncrease() {
+        tvController.setTv(tv);
+        tvController.turnOnTv();
+        tvController.switchChannelIncrease();
+        tvController.switchChannelIncrease();
+        tvController.switchChannelIncrease();
+        tvController.switchChannelIncrease();
+        tvController.switchChannelIncrease();
+        tvController.switchChannelIncrease();
+        tvController.switchChannelIncrease();
+
+
+        int expected = 8;
+        int actual = tv.getCurrentChannel();
+
+        assertEquals(expected,actual);
+    }
+
+    @Test
+    public void switchChannelDecrease() {
+        tvController.setTv(tv);
+        tvController.turnOnTv();
+        tv.setCurrentChannel(55);
+        tvController.switchChannelDecrease();
+        tvController.switchChannelDecrease();
+        tvController.switchChannelDecrease();
+        tvController.switchChannelDecrease();
+        tvController.switchChannelDecrease();
+        tvController.switchChannelDecrease();
+
+
+        int expected = 49;
+        int actual = tv.getCurrentChannel();
+
+        assertEquals(expected,actual);
+    }
 }
