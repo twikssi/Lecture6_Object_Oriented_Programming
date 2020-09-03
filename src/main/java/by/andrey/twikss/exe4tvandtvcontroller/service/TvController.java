@@ -20,4 +20,11 @@ public class TvController {
     public void turnOffTv(){
         tv.setSwitchTV(false);
     }
+
+    public void turnUpVolume(){
+        tv.turnUpVolume();
+    }
+    public void turnDownVolume(){
+        tv.turnDownVolume();
+    }
 }

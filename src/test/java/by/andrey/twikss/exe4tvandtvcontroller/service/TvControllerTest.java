@@ -59,4 +59,37 @@ public class TvControllerTest {
 
         assertEquals(expected,actual);
     }
+
+    @Test
+    public void turnUpVolume() {
+        tvController.setTv(tv);
+        tvController.turnOnTv();
+        tvController.turnUpVolume();
+        tvController.turnUpVolume();
+        tvController.turnUpVolume();
+        tvController.turnUpVolume();
+
+        int expected = 54;
+        int actual = tv.getCurrentVolume();
+
+        assertEquals(expected,actual);
+    }
+
+    @Test
+    public void turnDownVolume() {
+        tvController.setTv(tv);
+        tvController.turnOnTv();
+        tvController.turnDownVolume();
+        tvController.turnDownVolume();
+        tvController.turnDownVolume();
+        tvController.turnDownVolume();
+        tvController.turnOffTv();
+        tvController.turnDownVolume();
+        tvController.turnDownVolume();
+
+        int expected = 46;
+        int actual = tv.getCurrentVolume();
+
+        assertEquals(expected,actual);
+    }
 }
