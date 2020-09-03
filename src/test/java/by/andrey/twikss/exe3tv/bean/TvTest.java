@@ -43,8 +43,30 @@ public class TvTest {
 
     @Test
     public void testToString() {
-        String expected = "Tv{currentChanal=1, currentVolume=50, company='БеларускийПраудаЯшчык', switchTV=false}";
+        String expected = "Tv{currentChannel=1, currentVolume=50, company='БеларускийПраудаЯшчык', switchTV=false}";
         String actual = tv.toString();
+
+        assertEquals(expected,actual);
+    }
+
+    @Test
+    public void switchChannelIncreaseReturnNumber() {
+        tv.setSwitchTV(true);
+        tv.switchChannelIncrease();
+
+        int expected = 2;
+        int actual = tv.getCurrentChannel();
+
+        assertEquals(expected,actual);
+    }
+
+    @Test
+    public void switchChannelIncreaseReturnLog() {
+        tv.switchChannelIncrease();
+        tv.switchChannelIncrease();
+
+        int expected = 1;
+        int actual = tv.getCurrentChannel();
 
         assertEquals(expected,actual);
     }

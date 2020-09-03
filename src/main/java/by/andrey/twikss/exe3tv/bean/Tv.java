@@ -1,21 +1,33 @@
 package by.andrey.twikss.exe3tv.bean;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.Objects;
 
 public class Tv {
-    private int currentChanal;
+    private Logger logger = LoggerFactory.getLogger(Tv.class);
+    private int currentChannel;
     private int currentVolume;
     private String company;
     private boolean switchTV = false;
 
-    public Tv(int currentChanal, int currentVolume, String company) {
-        this.currentChanal = currentChanal;
+    public Tv(int currentChannel, int currentVolume, String company) {
+        this.currentChannel = currentChannel;
         this.currentVolume = currentVolume;
         this.company = company;
     }
 
-    public void setCurrentChanal(int currentChanal) {
-        this.currentChanal = currentChanal;
+    public void switchChannelIncrease (){
+        if (isSwitchTV() == true){
+            this.currentChannel += 1;
+        } else {
+            logger.info("Tv has turned off");
+        }
+    }
+
+    public void setCurrentChannel(int currentChannel) {
+        this.currentChannel = currentChannel;
     }
 
     public void setCurrentVolume(int currentVolume) {
@@ -30,8 +42,8 @@ public class Tv {
         this.switchTV = switchTV;
     }
 
-    public int getCurrentChanal() {
-        return currentChanal;
+    public int getCurrentChannel() {
+        return currentChannel;
     }
 
     public int getCurrentVolume() {
@@ -51,7 +63,7 @@ public class Tv {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Tv tv = (Tv) o;
-        return currentChanal == tv.currentChanal &&
+        return currentChannel == tv.currentChannel &&
                 currentVolume == tv.currentVolume &&
                 switchTV == tv.switchTV &&
                 Objects.equals(company, tv.company);
@@ -59,13 +71,13 @@ public class Tv {
 
     @Override
     public int hashCode() {
-        return Objects.hash(currentChanal, currentVolume, company, switchTV);
+        return Objects.hash(currentChannel, currentVolume, company, switchTV);
     }
 
     @Override
     public String toString() {
         return "Tv{" +
-                "currentChanal=" + currentChanal +
+                "currentChannel=" + currentChannel +
                 ", currentVolume=" + currentVolume +
                 ", company='" + company + '\'' +
                 ", switchTV=" + switchTV +
