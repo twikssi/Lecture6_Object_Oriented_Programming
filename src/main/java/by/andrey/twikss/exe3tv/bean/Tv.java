@@ -19,7 +19,7 @@ public class Tv {
     }
 
     public void switchChannelIncrease (){
-        if (isSwitchTV() == true){
+        if (isSwitchTV()){
             this.currentChannel += 1;
         } else {
             logger.info("Tv has turned off");
@@ -27,8 +27,24 @@ public class Tv {
     }
 
     public void switchChannelDecrease (){
-        if (isSwitchTV() == true){
+        if (isSwitchTV()){
             this.currentChannel -= 1;
+        } else {
+            logger.info("Tv has turned off");
+        }
+    }
+
+    public void turnUpVolume (){
+        if (isSwitchTV()){
+            this.currentVolume += 1;
+        } else {
+            logger.info("Tv has turned off");
+        }
+    }
+
+    public void turnDownVolume (){
+        if (isSwitchTV()){
+            this.currentVolume -= 1;
         } else {
             logger.info("Tv has turned off");
         }
