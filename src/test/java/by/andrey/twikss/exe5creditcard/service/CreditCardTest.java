@@ -48,7 +48,6 @@ public class CreditCardTest {
         creditCard.setIndebtedness(3000.0);
         creditCard.deposit(1000.0,1234);
 
-
         double expected = 2000.0;
         double actual = creditCard.getIndebtedness();
 
@@ -59,8 +58,6 @@ public class CreditCardTest {
     public void depositReturnPositiveBalanceAndZeroDept() {
         creditCard.setIndebtedness(3000.0);
         creditCard.deposit(4000.0,1234);
-
-
 
         double expected = 1000.0;
         double actual = creditCard.getBalance();
@@ -78,8 +75,6 @@ public class CreditCardTest {
         creditCard.setIndebtedness(3000.0);
         creditCard.deposit(2000.0,1234);
 
-
-
         double expected = 0.0;
         double actual = creditCard.getBalance();
 
@@ -95,8 +90,6 @@ public class CreditCardTest {
     public void depositReturnBalanceAndDeptZero() {
         creditCard.setIndebtedness(2000.0);
         creditCard.deposit(2000.0,1234);
-
-
 
         double expected = 0.0;
         double actual = creditCard.getBalance();
