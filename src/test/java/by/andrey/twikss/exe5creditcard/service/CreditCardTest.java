@@ -14,7 +14,7 @@ public class CreditCardTest {
     }
 
     @Test
-    public void depositReturnFalse() {
+    public void depositReturnFalsePincode() {
         creditCard.deposit(1000,1553);
 
         boolean expected = false;
@@ -24,7 +24,7 @@ public class CreditCardTest {
     }
 
     @Test
-    public void depositReturnTrue() {
+    public void depositReturnTruePincode() {
         creditCard.deposit(1000,1234);
 
         boolean expected = true;
@@ -56,7 +56,7 @@ public class CreditCardTest {
     }
 
     @Test
-    public void depositReturnPositiveBalanceAndNegatvieDept() {
+    public void depositReturnPositiveBalanceAndZeroDept() {
         creditCard.setIndebtedness(3000.0);
         creditCard.deposit(4000.0,1234);
 
@@ -74,7 +74,7 @@ public class CreditCardTest {
     }
 
     @Test
-    public void depositReturnNZeroBalanceAndPositiveDept() {
+    public void depositReturnZeroBalanceAndPositiveDept() {
         creditCard.setIndebtedness(3000.0);
         creditCard.deposit(2000.0,1234);
 
