@@ -102,4 +102,120 @@ public class CreditCardTest {
         assertEquals(expected,actual,0.009999999);
     }
 
+    @Test
+    public void withdrawReturnPincode() {
+        creditCard.withdraw(3000,1234);
+
+        int expected = 1234;
+        int actual = creditCard.getPinCode();
+
+        assertEquals(expected,actual);
+    }
+
+    @Test
+    public void withdrawReturnFalse() {
+        creditCard.withdraw(3000,1454);
+
+        boolean expected = false;
+        boolean actual = creditCard.getPinCode() == 1454;
+
+        assertEquals(expected,actual);
+    }
+
+    @Test
+    public void withdrawReturnPositiveBalance() {
+        creditCard.deposit(4000,1234);
+        creditCard.withdraw(3000,1234);
+
+        double expected = 1000;
+        double actual = creditCard.getBalance();
+
+        assertEquals(expected,actual, 0.009999999);
+
+        expected = 0.0;
+        actual = creditCard.getIndebtedness();
+
+        assertEquals(expected,actual, 0.009999999);
+    }
+
+    @Test
+    public void withdrawReturnZeroBalance() {
+        creditCard.deposit(3000,1234);
+        creditCard.withdraw(2000,1234);
+        creditCard.withdraw(1000,1234);
+
+        double expected = 0;
+        double actual = creditCard.getBalance();
+
+        assertEquals(expected,actual, 0.009999999);
+    }
+
+    @Test
+    public void withdrawReturnPositiveDeptAndZeroBalance() {
+        creditCard.setCreditLimit(2000);
+        creditCard.deposit(1000,1234);
+        creditCard.withdraw(3000,1234);
+
+        double expected = 0;
+        double actual = creditCard.getBalance();
+
+        assertEquals(expected,actual, 0.009999999);
+
+        expected = 2000;
+        actual = creditCard.getIndebtedness();
+
+        assertEquals(expected,actual, 0.009999999);
+    }
+
+    @Test
+    public void withdrawReturnDoubleValueDebt() {
+        creditCard.setCreditLimit(2000);
+        creditCard.withdraw(1000,1234);
+        creditCard.withdraw(500,1234);
+        creditCard.withdraw(501,1234);
+
+        double expected = 1500;
+        double actual = creditCard.getIndebtedness();
+
+        assertEquals(expected,actual, 0.009999999);
+    }
+
+    @Test
+    public void withdrawReturnSetNumberMoreThaneCreditLimit() {
+        creditCard.setCreditLimit(2000);
+        creditCard.withdraw(4000,1234);
+
+        double expected = 0;
+        double actual = creditCard.getIndebtedness();
+
+        assertEquals(expected,actual, 0.009999999);
+    }
+
+    @Test
+    public void withdrawReturnPositiveDepto() {
+        creditCard.setCreditLimit(2000);
+        creditCard.setIndebtedness(1000);
+        creditCard.deposit(1000,1234);
+        creditCard.withdraw(3000,1234);
+
+        double expected = 0;
+        double actual = creditCard.getIndebtedness();
+
+        assertEquals(expected,actual, 0.009999999);
+
+        creditCard.withdraw(1999.99,1234);
+
+        expected = 1999.99;
+        actual = creditCard.getIndebtedness();
+
+        assertEquals(expected,actual, 0.009999999);
+
+        creditCard.withdraw(0.01, 1234);
+        expected = 2000.0;
+        actual = creditCard.getIndebtedness();
+
+        assertEquals(expected,actual, 0.009999999);
+    }
+
+
 }
