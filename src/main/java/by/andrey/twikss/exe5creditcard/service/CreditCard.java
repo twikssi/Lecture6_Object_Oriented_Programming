@@ -20,7 +20,17 @@ public class CreditCard {
 
     public void deposit(double money, int pinCode){
         if (this.pinCode == pinCode) {
-
+            if (this.indebtedness > 0){
+                this.indebtedness = money - this.indebtedness;
+                if (this.indebtedness < 0){
+                    this.indebtedness = Math.abs(this.indebtedness);
+                } else {
+                    this.balance = this.indebtedness;
+                    this.indebtedness = 0;
+                }
+            } else{
+                this.balance += money;
+            }
         } else {
             logger.info("pincode is wrong. Retry effort.");
         }

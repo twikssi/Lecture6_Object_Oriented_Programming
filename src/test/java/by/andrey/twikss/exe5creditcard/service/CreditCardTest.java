@@ -33,5 +33,80 @@ public class CreditCardTest {
         assertEquals(expected,actual);
     }
 
+    @Test
+    public void depositReturnPositiveBalance() {
+        creditCard.deposit(1000.0,1234);
+
+       double expected = 1000.0;
+       double actual = creditCard.getBalance();
+
+        assertEquals(expected,actual,0.009999999);
+    }
+
+    @Test
+    public void depositReturnNegativeDept() {
+        creditCard.setIndebtedness(3000.0);
+        creditCard.deposit(1000.0,1234);
+
+
+        double expected = 2000.0;
+        double actual = creditCard.getIndebtedness();
+
+        assertEquals(expected,actual,0.009999999);
+    }
+
+    @Test
+    public void depositReturnPositiveBalanceAndNegatvieDept() {
+        creditCard.setIndebtedness(3000.0);
+        creditCard.deposit(4000.0,1234);
+
+
+
+        double expected = 1000.0;
+        double actual = creditCard.getBalance();
+
+        assertEquals(expected,actual,0.009999999);
+
+        expected = 0.0;
+        actual = creditCard.getIndebtedness();
+
+        assertEquals(expected,actual,0.009999999);
+    }
+
+    @Test
+    public void depositReturnNZeroBalanceAndPositiveDept() {
+        creditCard.setIndebtedness(3000.0);
+        creditCard.deposit(2000.0,1234);
+
+
+
+        double expected = 0.0;
+        double actual = creditCard.getBalance();
+
+        assertEquals(expected,actual,0.009999999);
+
+        expected = 1000.0;
+        actual = creditCard.getIndebtedness();
+
+        assertEquals(expected,actual,0.009999999);
+    }
+
+    @Test
+    public void depositReturnBalanceAndDeptZero() {
+        creditCard.setIndebtedness(2000.0);
+        creditCard.deposit(2000.0,1234);
+
+
+
+        double expected = 0.0;
+        double actual = creditCard.getBalance();
+
+        assertEquals(expected,actual,0.009999999);
+
+        expected = 0.0;
+        actual = creditCard.getIndebtedness();
+
+        assertEquals(expected,actual,0.009999999);
+    }
 
 }
